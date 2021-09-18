@@ -52,10 +52,10 @@ function update() {
 
 function checkCollisions(item) {
     // TODO: detect collision with all walls and make pacman bounce
-    item.velocity.x = item.position.x - item.newimg.style.width <= 0 ? -item.velocity.x : item.velocity.x;
+    item.velocity.x = item.position.x <= 0 ? -item.velocity.x : item.velocity.x;
     item.velocity.y = item.position.y <= 0 ? -item.velocity.y : item.velocity.y;
 
-    item.velocity.x = item.position.x + item.newimg.style.width > document.documentElement.clientWidth ? -item.velocity.x : item.velocity.x;
+    item.velocity.x = item.position.x > document.documentElement.clientWidth - item.newimg.clientWidth ? -item.velocity.x : item.velocity.x;
     item.velocity.y = item.position.y > document.documentElement.clientHeight ? -item.velocity.y : item.velocity.y;
 
     //console.log(item);
